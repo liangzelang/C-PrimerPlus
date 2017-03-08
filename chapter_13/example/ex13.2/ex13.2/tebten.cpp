@@ -25,3 +25,14 @@ void TableTennisPlayer::Name() const  //不改变这个类
 {
 	std::cout << lastname << ", " << firstname << endl;
 }
+
+//RatePlayer methods
+RatePlayer::RatePlayer(unsigned int r, const string & fn, const string & ln, bool ht) : rating(r), TableTennisPlayer(fn, ln, ht)
+{
+
+}
+
+RatePlayer::RatePlayer(unsigned int r, const TableTennisPlayer & tp): rating(r),TableTennisPlayer(tp)  //这是自动创建一个复制构造函数
+{
+
+}

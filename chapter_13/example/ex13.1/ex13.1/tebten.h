@@ -2,12 +2,20 @@
 #define TEBTEN_H_
 
 #include <string>
-using namespace std;
+using std::string;
 
 class TableTennisPlayer
 {
 private:
-	str           ing firstname;
+	string firstname;
+	string lastname;
+	bool hasTable;
+public:
+	TableTennisPlayer(const string & fn = "none", const string & ln = "none", bool ht = false);
+	~TableTennisPlayer();
+	void Name() const;  //不改变这个类
+	bool HasTable() const { return hasTable; };
+	void ResetTable(bool v) { hasTable = v; };
 
 };
 #endif

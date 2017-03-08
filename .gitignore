@@ -4,6 +4,7 @@ ipch/
 *.sdf
 *.sln
 *.suo
+*.opensdf
 
 # SRC
 *.vcxproj
