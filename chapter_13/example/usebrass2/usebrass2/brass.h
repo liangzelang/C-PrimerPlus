@@ -15,7 +15,7 @@ public:
 	void Deposit(double amt);
 	virtual void Withdraw(double amt);
 	double Balance() const;  //常成员函数，不修改对象内的任何成员
-	void ViewAcct() const;
+	virtual void ViewAcct() const;
 	virtual ~Brass() {}
 };
 
@@ -29,7 +29,7 @@ private:
 public:
 	BrassPlus(const std::string & s = "Nullbody", long an = -1, double bal = 0.0, double ml =500,double r = 0.11125);
 	BrassPlus(const Brass & ba,double ml = 500, double r = 0.11125);
-	void ViewAcct() const;
+	virtual void ViewAcct() const;
 	virtual void Withdraw(double amt);
 	void ResetMax(double m) {maxLoan = m;}
 	void ResetRate(double r) { rate = r;};
