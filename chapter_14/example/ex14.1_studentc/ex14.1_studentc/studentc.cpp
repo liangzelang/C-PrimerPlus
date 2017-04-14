@@ -1,4 +1,4 @@
-#include "studentc.h"
+#include "studentc.h"  // --studnet class using containment
 
 using namespace std;
 
