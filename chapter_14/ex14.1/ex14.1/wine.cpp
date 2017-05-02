@@ -1,56 +1,48 @@
-#ifndef WINE_H_
-#define WINE_H_
-#include <string>
-#include <iostream>
-#include <valarray>
+#include "wine.h"
 
-using namespace std;
-
-template <class T1, class T2>
-class Pair
+Wine::Wine(const char * l, int y, const int yr[], const int bot[])
 {
-private:
-	T1 year;
-	T2 bottles;
-public:
-	Pair(const T1 & yr, const T2 & bt) : year(yr), bottles(bt) {}
-	Pair() {}
-	void Set(const T1 & yr, const T2 & bt);
-	int Sum() const;
-	void Show(int y) const;
-};
+	fullname = l;
+	yrs = y;
+	yb.Set(ArrayInt(yr, yrs),ArrayInt(bot,yrs));
 
-template <class T1, class T2>
-void Pair<T1, T2>::Set(const T1 & yr, const T2 & bt)
-{
-	year = yr;
-	bottles = bt;
 }
 
-template <class T1, class T2>
-int Pair<T1, T2>::Sum() const
+Wine::Wine(const char * l, int y)
 {
-	return bottles.sum;  //why
+	fullname = l; 
+	yrs = y;
 }
 
-template <class T1, class T2>
-void Pair<T1, T2>::Show(int y) const
+void Wine::GetBottles()
 {
-	for(int i = 0; i < y; i++)
-		cout << "\t" << year[i] << "\t" << bottles[i] << endl;
+	ArrayInt yr(yrs),bt(yrs);
+	for(int i= 0; i < yrs; i++)
+	{
+		cout << "Enter the year: ";
+		cin >> yr[i];
+		cout << "Enter the bottles: ";
+		cin >> bt[i];
+	}
+	while(cin.get() != '\n')
+		continue;
+	yb.Set(yr,bt);
 }
 
-typedef valarray<int> ArrayInt;
-typedef Pair<ArrayInt, ArrayInt> PairArray;
-
-class Wine
-{};
-class Wine
+string & Wine::Label()
 {
-private:
-	string name;
+	return fullname;
+}
 
+void Wine::Show() const
+{
+	cout << "Wine: " << fullname << endl;
+	cout << "\t Year\t Bottles\n";
+	yb.Show(yrs);
+}
 
-};
+int Wine::sum() const 
+{
+	return yb.Sum();
+}
 
-#endif
