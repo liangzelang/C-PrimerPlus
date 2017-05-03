@@ -36,11 +36,11 @@ int main()
 			else
 				lolas.dequeue(temp);
 			break;
-		}
-		cout << "Here the total count: ";
-		cout << lolas.queuecount();
-		cout << "Done.\n";
-		system("pause");
-		return 0;
+		}		
 	}
+	cout << "\nHere the total count : ";
+	cout << lolas.queuecount();
+	cout << "\nDone\n";
+	system("pause");
+	return 0;
 }
