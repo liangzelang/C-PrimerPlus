@@ -77,6 +77,7 @@ public:
 	highfink(const abstr_emp & e, const string &rpo, int ico);
 	highfink(const fink & f, int ico);
 	highfink(const manager & m, const string & rpo);
+	highfink(const highfink & h);
 	virtual void ShowAll() const;
 	virtual void SetAll();
 };
